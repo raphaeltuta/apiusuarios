@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from database import Usuarios, db
+import uvicorn
 
 app = FastAPI()
 db.connect()
@@ -63,3 +64,4 @@ def deletar_usuario(user_id: int):
     except:
         return {'erro':'Tivemos um erro...'}
     
+uvicorn.run("api:app", host="0.0.0.0", port=8000, reload=True)
